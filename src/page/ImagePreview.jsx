@@ -182,7 +182,6 @@ const ImagePreview = ({ data }) => {
     <>
       <SplitButton
         label="Download"
-        icon="pi pi-plus"
         onClick={() => {
           data.type === "premium" && token === null
             ? navigate("/login")
