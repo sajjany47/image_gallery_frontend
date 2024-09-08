@@ -24,7 +24,7 @@ const ImagePreview = ({ data }) => {
       userData?.plan === "Bronze"
         ? "720p"
         : userData?.plan === "Silver"
-        ? "1440"
+        ? "1440p"
         : userData?.plan === "Gold"
         ? "4k"
         : "720p"
