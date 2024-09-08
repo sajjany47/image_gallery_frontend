@@ -78,51 +78,57 @@ const Pricing = () => {
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam
         eligendi quos.
       </div>
-
-      <div className="grid">
-        {plan.map((item, index) => {
-          return (
-            <div className="col-12 lg:col-4" key={index}>
-              <div className="p-3 h-full">
-                <div
-                  className="shadow-2 p-3 h-full flex flex-column"
-                  style={{ borderRadius: "6px" }}
-                >
-                  <div className="text-900 font-medium text-xl mb-2">
-                    {item.name}
+      <div style={{ display: "block", width: "98%" }}>
+        <div className="grid">
+          {plan.map((item, index) => {
+            return (
+              <div className="col-12 lg:col-4" key={index}>
+                <div className="p-3 h-full">
+                  <div
+                    className="shadow-2 p-3 h-full flex flex-column"
+                    style={{ borderRadius: "6px" }}
+                  >
+                    <div className="text-900 font-medium text-xl mb-2">
+                      {item.name}
+                    </div>
+                    <div className="text-600">Plan description</div>
+                    <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
+                    <div className="flex align-items-center">
+                      <span className="font-bold text-2xl text-900">
+                        ${item.price}
+                      </span>
+                      <span className="ml-2 font-medium text-600">
+                        per month
+                      </span>
+                    </div>
+                    <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
+                    <ul className="list-none p-0 m-0 flex-grow-1">
+                      {item.features.map((elm, ind) => {
+                        return (
+                          <li
+                            className="flex align-items-center mb-3"
+                            key={ind}
+                          >
+                            <i className="pi pi-check-circle text-green-500 mr-2"></i>
+                            <span>{elm}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <hr className="mb-3 mx-0 border-top-1 border-bottom-none border-300 mt-auto" />
+                    <Button
+                      label="Buy Now"
+                      className="p-3 w-full mt-auto"
+                      onClick={() => {
+                        token === null ? navigate("/login") : confirm(item);
+                      }}
+                    />
                   </div>
-                  <div className="text-600">Plan description</div>
-                  <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
-                  <div className="flex align-items-center">
-                    <span className="font-bold text-2xl text-900">
-                      ${item.price}
-                    </span>
-                    <span className="ml-2 font-medium text-600">per month</span>
-                  </div>
-                  <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
-                  <ul className="list-none p-0 m-0 flex-grow-1">
-                    {item.features.map((elm, ind) => {
-                      return (
-                        <li className="flex align-items-center mb-3" key={ind}>
-                          <i className="pi pi-check-circle text-green-500 mr-2"></i>
-                          <span>{elm}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <hr className="mb-3 mx-0 border-top-1 border-bottom-none border-300 mt-auto" />
-                  <Button
-                    label="Buy Now"
-                    className="p-3 w-full mt-auto"
-                    onClick={() => {
-                      token === null ? navigate("/login") : confirm(item);
-                    }}
-                  />
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

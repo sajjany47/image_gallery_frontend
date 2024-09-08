@@ -36,7 +36,7 @@ const ImageTabView = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="card">
+    <div className="card" onContextMenu={(e) => e.preventDefault()}>
       {loading && <Loader />}
       <TabView>
         <TabPanel header="ALL">
